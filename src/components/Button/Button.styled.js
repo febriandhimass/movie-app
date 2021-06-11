@@ -18,7 +18,7 @@ export const ButtonStyled = styled.button`
   border-radius: 8px;
   cursor: pointer;
   height: 42px;
-  padding: 12px;
+  padding: 8px;
 
   ${outlineProps};
 `;

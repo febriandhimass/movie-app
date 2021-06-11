@@ -5,10 +5,14 @@ import Routes from './Routes';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Loading from './components/Loading';
+import { Provider } from 'react-redux';
+import store from 'state/store';
 
 ReactDOM.render(
   <Suspense fallback={<Loading />}>
-    <Routes />
+    <Provider store={store}>
+      <Routes />
+    </Provider>
   </Suspense>,
   document.getElementById('root')
 );

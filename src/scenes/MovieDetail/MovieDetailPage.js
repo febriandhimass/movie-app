@@ -1,32 +1,41 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
 
 import Layout from "components/Layout";
 import MovieDetail from "./components/MovieDetail";
 import Button from "components/Button";
 import { WrapperButton } from "./components/Wrapper.styled";
-import { Link } from "react-router-dom";
-
-const data = {
-  "Poster": "https://m.media-amazon.com/images/M/MV5BM2NmYjZjOGItYTQ0ZC00YjcyLTk3MWUtYzdmZjY1MGNkMDViXkEyXkFqcGdeQXVyNzc5MjA3OA@@._V1_SX300.jpg",
-  "Title": "Greystoke: The Legend of Tarzan, Lord of the Apes",
-  "Type": "movie",
-  "Year": "1984",
-  "imdbID": "tt0087365",
-}
 
 function MovieDetailPage() {
+  const location = useLocation();
+  const [movie, setMovie] = useState([]);
+  const movies = useSelector((state) => {
+    return state.movies;
+  });
+
   useEffect(() => {
-    document.title = 'Detail | Movie App';
+    document.title = "Detail | Movie App";
+    const getMovieDetail = () => {
+      const pathName = location.pathname;
+      const filteredMovie = movies.filter((v) => pathName.includes(v.imdbID));
+      setMovie(filteredMovie);
+    };
+    getMovieDetail();
   }, []);
 
   return (
     <Layout>
-      <MovieDetail movie={data} />
-      <WrapperButton>
-        <Link to="/">
-          <Button outline>Back</Button>
-        </Link>
-      </WrapperButton>
+      {movie.length > 0 ? (
+        <>
+          <MovieDetail movie={movie[0]} />
+          <WrapperButton>
+            <Link to="/">
+              <Button outline>Back</Button>
+            </Link>
+          </WrapperButton>
+        </>
+      ) : null}
     </Layout>
   );
 }

@@ -1,10 +1,13 @@
-import React from 'react';
-import { Text, Wrapper } from './Header.styled';
+import React from "react";
+import { Wrapper } from "./Header.styled";
+import Text from "../Text";
 
 function Header({ children }) {
   return (
     <Wrapper>
-      <Text>{children}</Text>
+      <Text color="#ffffff" variant="heading" textAlign="center" fontSize={32}>
+        Movies
+      </Text>
     </Wrapper>
   );
 }

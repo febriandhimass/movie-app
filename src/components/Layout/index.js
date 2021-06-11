@@ -1,12 +1,12 @@
-import React from 'react';
-import { Content, Wrapper } from './Layout.styled';
-import Header from '../Header';
+import React from "react";
+import { Content, Wrapper } from "./Layout.styled";
+import Header from "../Header";
 
 function Layout({ children }) {
-  return(
+  return (
     <Wrapper>
       <Content>
-        <Header>Movies</Header>
+        <Header />
         {children}
       </Content>
     </Wrapper>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 
@@ -9,26 +9,19 @@ import { WrapperButton } from "./components/Wrapper.styled";
 
 function MovieDetailPage() {
   const location = useLocation();
-  const [movie, setMovie] = useState([]);
-  const movies = useSelector((state) => {
-    return state.movies;
-  });
+  const pathName = location.pathname;
+  const movies = useSelector((state) => state.movies);
+  const filteredMovie = movies.filter((v) => pathName.includes(v.imdbID));
 
   useEffect(() => {
     document.title = "Detail | Movie App";
-    const getMovieDetail = () => {
-      const pathName = location.pathname;
-      const filteredMovie = movies.filter((v) => pathName.includes(v.imdbID));
-      setMovie(filteredMovie);
-    };
-    getMovieDetail();
-  }, []);
+  });
 
   return (
     <Layout>
-      {movie.length > 0 ? (
+      {filteredMovie.length > 0 ? (
         <>
-          <MovieDetail movie={movie[0]} />
+          <MovieDetail movie={filteredMovie[0]} />
           <WrapperButton>
             <Link to="/">
               <Button outline>Back</Button>

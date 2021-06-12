@@ -42,7 +42,7 @@ function MovieListPage() {
       window.innerHeight + document.documentElement.scrollTop ===
       document.documentElement.offsetHeight
     ) {
-      if (!noData) {
+      if (!noData && searchValue.length > 0) {
         handleSubmit(page);
       }
     }

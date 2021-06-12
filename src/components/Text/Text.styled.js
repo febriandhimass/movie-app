@@ -4,9 +4,9 @@ export const variantProps = ({ color, fontSize, textAlign }) => css`
   font-family: Lato, Helvetica, Arial, sans-serif !important;
   font-style: normal;
   line-height: 150%;
-  color: ${color};
-  font-size: ${fontSize}px;
-  text-align: ${textAlign};
+  ${color && css` color: ${color} `};
+  ${fontSize && css` font-size: ${fontSize}px `};
+  ${textAlign && css` text-align: ${textAlign} `};
 `;
 
 export const HeadingText = styled.h2`

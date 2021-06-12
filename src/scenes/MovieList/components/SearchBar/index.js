@@ -18,8 +18,9 @@ function SearchBar({ value, onChange, onKeyPress }) {
         <InputStyled
           placeholder="Find movie here"
           type="text"
+          data-testid="qa-searchbar"
           value={value}
-          onChange={(e) => onChange(e.target.value)}
+          onChange={onChange}
           onKeyPress={onKeyPress}
         />
       </InputContainer>

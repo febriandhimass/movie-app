@@ -20,7 +20,7 @@ function MovieListPage() {
   }, []);
 
   const handleSearch = (e) => {
-    setSearchValue(e);
+    setSearchValue(e.target.value);
     setPage(1);
     setMovieList([]);
     setErrorMessage("");

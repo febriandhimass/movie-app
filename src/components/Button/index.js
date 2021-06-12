@@ -17,7 +17,12 @@ function Button(props) {
   const { children, className, outline, ...restProps } = props;
 
   return (
-    <ButtonStyled className={className} outline={outline} {...restProps}>
+    <ButtonStyled
+      data-testid="qa-button"
+      className={className}
+      outline={outline}
+      {...restProps}
+    >
       {children}
     </ButtonStyled>
   );

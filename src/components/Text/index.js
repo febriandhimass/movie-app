@@ -18,7 +18,7 @@ const propTypes = {
   /**
    * set variant text
    */
-  variant: PropTypes.oneOf(["heading", "normal"]).isRequired,
+  variant: PropTypes.oneOf(["heading", "normal"]),
 };
 
 const defaultProps = {
@@ -41,8 +41,9 @@ function Text(props) {
   return variant === "heading" ? (
     <HeadingText
       color={color}
-      fontSize={fontSize}
+      data-testid="qa-heading-text"
       className={className}
+      fontSize={fontSize}
       textAlign={textAlign}
       {...restProps}
     >
@@ -51,8 +52,9 @@ function Text(props) {
   ) : (
     <NormalText
       color={color}
-      fontSize={fontSize}
       className={className}
+      data-testid="qa-normal-text"
+      fontSize={fontSize}
       textAlign={textAlign}
       {...restProps}
     >

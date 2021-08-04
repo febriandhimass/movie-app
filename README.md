@@ -2,8 +2,6 @@
 
 Here is a quick start guide. 
 
-> Basicly it's all about `movie-app`, but there is an `Anagram` also. To run this `anagram` will be explained on [Run App](#run-app)
-
 ## Table of Contents
 
 1. [Development Setup](#development-setup)
@@ -30,8 +28,6 @@ $ yarn start
 ```
 
 Open http://localhost:3000 to view it in the browser.
-
-> To run the `Anagram`, make sure you are at the parent directory. Then type `node anagram` on your terminal
 
 ## Available commands
 
